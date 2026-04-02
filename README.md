@@ -7,8 +7,6 @@ Chrome extension + Python backend to **auto-fill job applications** from your `c
 - ✅ Scans forms, extracts labels/fields
 - ✅ Parses cv.pdf, generates **personalized answers**
 - ✅ Auto-fills answers
-- ✅ Preview/edit/copy in popup
-- ✅ 100% local (Ollama)
 
 ## 🎯 Quick Start
 
@@ -29,7 +27,7 @@ uvicorn backend.app:app --host 0.0.0.0 --port 5000 --reload
 
 - chrome://extensions/
 - "Load unpacked" → `chrome-extension/`
-- Visit job form → Click icon → Scan → Fill!
+- Visit job form → Click icon → Scan → Fill
 
 ## Backend API (http://localhost:5000/docs)
 
@@ -42,21 +40,7 @@ uvicorn backend.app:app --host 0.0.0.0 --port 5000 --reload
 ├── cv.pdf           # Add your resume!
 ├── backend/         # FastAPI + Ollama
 ├── chrome-extension/ # Manifest v3 + popup
-├── TODO.md          # [All complete]
 ```
-
-## Test
-
-1. Backend running + cv.pdf present
-2. Load extension
-3. Test on example HTML or real site
-4. `curl -X POST http://localhost:5000/health`
-
-## Production Notes
-
-- Cloud LLM: set OPENAI_API_KEY in .env
-
-**Fully functional!** Place cv.pdf, run backend, load extension, test on forms.
 
 `command: uvicorn backend.app:app --host 0.0.0.0 --port 5000 --reload`
 
