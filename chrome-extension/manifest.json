@@ -1,0 +1,28 @@
+{
+  "manifest_version": 3,
+  "name": "Job Form Autofill Assistant",
+  "version": "1.0",
+  "description": "Scans forms and auto-fills from your CV using local AI backend",
+  "permissions": ["activeTab", "storage", "scripting"],
+  "host_permissions": ["http://localhost:5000/*"],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Autofill Forms",
+    "default_icon": {
+      "128": "icons/icon128.png"
+    }
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "icons": {
+    "128": "icons/icon128.png"
+  }
+}
